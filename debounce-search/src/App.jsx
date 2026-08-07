@@ -4,10 +4,13 @@
 // later requires changing a single import here.
 // import TabsPractice from "./challenges/01-tabs";
 
-import Faq from "./challenges/02-accordion/Faq";
+// import Faq from "./challenges/02-accordion/Faq";
+
+import Faqq from "./challenges/FAQ/Faqq"
+import data from "./challenges/02-accordion/data.json"
 
 
 export default function App() {
-  return <Faq />;
+  return <Faqq data={data}/>;
 }
 
