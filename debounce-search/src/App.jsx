@@ -6,11 +6,12 @@
 
 // import Faq from "./challenges/02-accordion/Faq";
 
-import Faqq from "./challenges/FAQ/Faqq"
-import data from "./challenges/02-accordion/data.json"
+// import Faqq from "./challenges/FAQ/Faqq"
+// import data from "./challenges/02-accordion/data.json"
 
+import Traffic from "./challenges/04-traffic-light/Traffic";
 
 export default function App() {
-  return <Faqq data={data}/>;
+  return <Traffic/>;
 }
 
