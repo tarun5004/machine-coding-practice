@@ -1,8 +1,10 @@
 import "./Signals.css"
 
-export default function Signals() {
+export default function Signals({color, isActive}) {
     return (
-        <div className="signals" >
-        </div>
+        <div 
+        className="signals"
+        style={{backgroundColor: isActive? `${color}` : "dimgray"}}
+        ></div>
     )
 }
