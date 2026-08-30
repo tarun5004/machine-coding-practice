@@ -4,8 +4,37 @@ import TodoList from "./TodoList"
 
 
 const Todo = () => {
-    
 
+    // update and edit todo
+    const[editingId, setEditingId] = useState(null);
+    const[editTask, setEditTask]= useState("");
+
+    const startEdit = (todo) => {
+        setEditingId(todo.id);
+        setEditTask(todo.task);
+    }
+
+    const cancelEdit = () => {
+        setEditingId(null);
+        setEditTask("");
+    }
+
+    // update todo
+    const updateTodo = (id) => {
+        if (editTask.trim == "") return;
+
+        setTodos(prev => 
+            prev.map(todo => 
+                todo.id == id
+                ? { ...todo, task: editTask}
+                :todo
+            )
+        );
+        setEditingId(null);
+        setEditTask("");
+    }
+    
+    // set task state
     const[task, setTask] =useState("");
     const[todos, setTodos] = useState(()=> {
         const savedTodos = localStorage.getItem("todos");
@@ -64,10 +93,18 @@ const Todo = () => {
                 todos={todos}
                 toggleTodo={toggleTodo}
                 deleteTodo={deleteTodo}
+                startEdit={startEdit}
+                editingId={editingId}
+                editTask={editTask}
+                setEditTask={setEditTask}
+                updateTodo={updateTodo}
+                cancelEdit={cancelEdit}
                 />
         </div>
     </div>
     )
 }
+
+
 
 export default Todo
